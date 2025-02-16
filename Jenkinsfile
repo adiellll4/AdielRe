@@ -30,58 +30,16 @@ pipeline {
 
     post {
         always {
+            // שימוש ב-plugin HTML Publisher כדי להציג את הפלט
             publishHTML(target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: '',
-                reportFiles: 'output.html',
-                reportName: 'User Data Output'
+                reportName: 'User Data Output', // שם הדוח שיתקבל ב-Jenkins
+                reportFiles: 'output.html', // הקובץ שהפקנו
+                reportDir: '.', // ספריית העבודה הנוכחית שבה נוצר הקובץ
+                keepAll: true, // שימור כל הדוחות הקודמים
+                allowMissing: false // לא לאפשר דוח חסר
             ])
         }
     }
 }
 
 
-
-// pipeline {
-//     agent any
-
-//     parameters {
-//         string(name: 'NAME', defaultValue: 'John Doe', description: 'Enter your name')
-//         string(name: 'AGE', defaultValue: '30', description: 'Enter your age')
-//     }
-
-//     stages {
-//         stage('Process User Input') {
-//             steps {
-//                 script {
-//                     def scriptPath = 'AdielScript.groovy'
-//                     def outputMessage = load(scriptPath).processUserInput(params.NAME, params.AGE)
-
-//                     writeFile file: 'output.html', text: """
-//                         <html>
-//                         <head><title>Jenkins Output</title></head>
-//                         <body>
-//                         ${outputMessage}
-//                         </body>
-//                         </html>
-//                     """
-//                 }
-//             }
-//         }
-//     }
-
-//     post {
-//         always {
-//             publishHTML(target: [
-//                 allowMissing: false,
-//                 alwaysLinkToLastBuild: true,
-//                 keepAll: true,
-//                 reportDir: '',
-//                 reportFiles: 'output.html',
-//                 reportName: 'User Data Output'
-//             ])
-//         }
-//     }
-// }
