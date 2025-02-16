@@ -6,6 +6,10 @@ pipeline {
         string(name: 'DAY_OF_BIRTH', defaultValue: '15', description: 'Enter your birth day (1-31)')
     }
 
+    environment {
+        OUTPUT_FILE ='output.html'
+    }
+
     stages {
         stage('Process User Input') {
             steps {
