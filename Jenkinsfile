@@ -10,7 +10,7 @@ pipeline {
         stage('Process User Input') {
             steps {
                 script {
-                    def scriptPath = 'process_user_input.groovy'
+                    def scriptPath = 'AdielScript.groovy'
                     def outputMessage = load(scriptPath).processUserInput(params.NAME, params.AGE)
 
                     writeFile file: 'output.html', text: """
