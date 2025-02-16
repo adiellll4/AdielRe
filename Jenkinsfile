@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'NAME', defaultValue: 'John Doe', description: 'Enter your name')
+        string(name: 'NAME', defaultValue: 'Enter name', description: 'Enter your name')
         string(name: 'DAY_OF_BIRTH', defaultValue: '15', description: 'Enter your birth day (1-31)')
     }
 
